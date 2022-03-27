@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2022 | shy&#39;s Blog</title>
+  <title>shy&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
+  <meta name="description" content="抽象类与抽象方法  随着继承层次中一个个新子类的定义，类变得越来越具体，而父类更一般，更通用。类的设计应当保证父类和子类共享一个特征。有时将一个父类设计的非常抽象，以至于没有具体的实例，这样的类成为抽象类。  abstract关键字的使用   abstract抽象的 abstract可以用来修饰结构、类和方法   abstract修饰抽象类   此类不可被实例化 抽象类中有构造器，便于子类实例化时">
+<meta property="og:type" content="article">
 <meta property="og:title" content="shy&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2022/index.html">
+<meta property="og:url" content="http://yoursite.com/2022/03/27/AbstractClass/index.html">
 <meta property="og:site_name" content="shy&#39;s Blog">
+<meta property="og:description" content="抽象类与抽象方法  随着继承层次中一个个新子类的定义，类变得越来越具体，而父类更一般，更通用。类的设计应当保证父类和子类共享一个特征。有时将一个父类设计的非常抽象，以至于没有具体的实例，这样的类成为抽象类。  abstract关键字的使用   abstract抽象的 abstract可以用来修饰结构、类和方法   abstract修饰抽象类   此类不可被实例化 抽象类中有构造器，便于子类实例化时">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-27T10:19:36.807Z">
+<meta property="article:modified_time" content="2022-03-27T10:19:36.990Z">
 <meta property="article:author" content="shy">
 <meta property="article:tag" content="love life, love yourself">
 <meta name="twitter:card" content="summary">
@@ -182,126 +186,218 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AbstractClass" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+  <div class="article-entry" itemprop="articleBody">
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/03/27/JavaEasyError/" class="archive-article-date">
-        <time datetime="2022-03-27T10:20:20.355Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
-</a>
+    <h1 id="抽象类与抽象方法"><a href="#抽象类与抽象方法" class="headerlink" title="抽象类与抽象方法"></a>抽象类与抽象方法</h1><p>  随着继承层次中一个个新子类的定义，类变得越来越具体，而父类更一般，更通用。类的设计应当保证父类和子类共享一个特征。有时将一个父类设计的非常抽象，以至于没有具体的实例，这样的类成为抽象类。</p>
+<ul>
+<li>abstract关键字的使用</li>
+</ul>
+<blockquote>
+<p>abstract抽象的</p>
+<p>abstract可以用来修饰结构、类和方法</p>
+</blockquote>
+<ol>
+<li>abstract修饰抽象类</li>
+</ol>
+<blockquote>
+<p>此类不可被实例化</p>
+<p>抽象类中有构造器，便于子类实例化时调用</p>
+<p>开发中，都会提供抽象类的子类，让子类对象实例化，完成相关的操作。</p>
+</blockquote>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.java;</span><br><span class="line">	public class PersonTest</span><br><span class="line">	&#123;</span><br><span class="line">		public static void main(String[] args)</span><br><span class="line">		&#123;</span><br><span class="line">			Person p=new Person();//此时报错，抽象类不能实例化</span><br><span class="line">			p.eat();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> abstract class Person &#123;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	public Person()</span><br><span class="line">	&#123;&#125;</span><br><span class="line">	public Person(String name,int age)</span><br><span class="line">	&#123;</span><br><span class="line">		this.age=age;</span><br><span class="line">		this.name=name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;人要吃饭&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">class Student extends Person&#123;</span><br><span class="line">	public Student(String name,int age)</span><br><span class="line">	&#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        </div>
-    	 
+<p>abstract修饰方法，抽象方法</p>
+<blockquote>
+<p>只有方法的声明，没有方法体</p>
+<p>包含抽象方法的类，一定是抽象类，反之，抽象类中可以没有抽象方法；</p>
+<p>若子类重写了父类的所有得抽象方法后，此子类方可实例化，若不重写父类的抽象方法，则子类需加abstract后成为抽象类后，方不报错(包括间接父类)</p>
+</blockquote>
+<p>abstract使用的注意点</p>
+<blockquote>
+<p>不能修饰：属性，构造器</p>
+<p>不能用来修饰私有方法，静态方法，final的方法</p>
+</blockquote>
+<h3 id="abstract应用"><a href="#abstract应用" class="headerlink" title="abstract应用"></a>abstract应用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.java;</span><br><span class="line">public abstract class Employee &#123;//父类</span><br><span class="line">	private String name;</span><br><span class="line">	private double id;</span><br><span class="line">	private double salary;</span><br><span class="line">	public Employee()</span><br><span class="line">	&#123;&#125;</span><br><span class="line">	public Employee(String name,double id,double salary)</span><br><span class="line">	&#123;</span><br><span class="line">		this.id=id;</span><br><span class="line">		this.name=name;</span><br><span class="line">		this.salary=salary;</span><br><span class="line">	&#125;</span><br><span class="line">	public abstract void work()</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.java;</span><br><span class="line">public class Manager extends Employee &#123;//子类</span><br><span class="line">	private double bonus;</span><br><span class="line">	public Manager(double bonus)</span><br><span class="line">	&#123;</span><br><span class="line">		super();</span><br><span class="line">		this.bonus=bonus;</span><br><span class="line">	&#125;</span><br><span class="line">	public Manager(double bonus,String name,double id,double salary)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,id,salary);</span><br><span class="line">		this.bonus=bonus;</span><br><span class="line">	&#125;</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;管理员工，提高公司效率&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.java;</span><br><span class="line">public class ComonEployee extends Employee &#123;//子类</span><br><span class="line">	public void work()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;员工在一线生产&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.java;</span><br><span class="line">public class EmployeeTest &#123;//测试类</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Employee man=new Manager(5000,&quot;kuke&quot;,2172710,1000);</span><br><span class="line">		man.work();</span><br><span class="line">		ComonEployee cman=new ComonEployee();</span><br><span class="line">		cman.work();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="抽象类的匿名子类"><a href="#抽象类的匿名子类" class="headerlink" title="抽象类的匿名子类"></a>抽象类的匿名子类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br><span class="line">		&#123;</span><br><span class="line">			Person p=new Person() &#123;</span><br><span class="line">			public void eat() &#123;</span><br><span class="line">				System.out.println(&quot;P要吃饭&quot;);</span><br><span class="line">			&#125;	</span><br><span class="line">			&#125;;</span><br><span class="line">			method1(p);</span><br><span class="line">		&#125;</span><br><span class="line">		public static void method1(Person p)</span><br><span class="line">		&#123;</span><br><span class="line">			p.eat();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">abstract class Person &#123;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	public Person()</span><br><span class="line">	&#123;&#125;</span><br><span class="line">	public Person(String name,int age)</span><br><span class="line">	&#123;</span><br><span class="line">		this.age=age;</span><br><span class="line">		this.name=name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void eat()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;人要吃饭&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<h2 id="多态的应用：模板方法的设计模式"><a href="#多态的应用：模板方法的设计模式" class="headerlink" title="多态的应用：模板方法的设计模式"></a>多态的应用：模板方法的设计模式</h2><p>抽象类体现的就是一种模板模式的设计，抽象类作为多个子类的通用模板，子类在抽象类的基础上进行拓展，改造，但子类在总体上会保留抽象类得行为模式</p>
+<blockquote>
+<p>解决的问题：当功能内部的一部分实现是确定得，一部份是不确定得，这时可以把不确定的部分暴漏出去，让子类去实现。</p>
+</blockquote>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shy
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2022/03/27/AbstractClass/" title="" target="_blank">http://yoursite.com/2022/03/27/AbstractClass/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/03/27/AbstractClass/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/03/27/AbstractClass/" class="archive-article-date">
-        <time datetime="2022-03-27T10:19:36.807Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-27</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/03/27/JavaEasyError/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/26/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/03/26/Markdown/" class="archive-article-date">
-        <time datetime="2022-03-26T14:00:55.592Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-26</time>
-</a>
-
-        </div>
-    	 
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/03/26/hello-world/" class="archive-article-date">
-        <time datetime="2022-03-26T05:40:00.527Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/03/26/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -342,8 +438,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
